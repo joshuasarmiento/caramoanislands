@@ -1,0 +1,64 @@
+{
+  "title": "Where to Stay in Caramoan",
+  "description": "Explore hotels, resorts, beachfront stays, and homestays in Caramoan Peninsula. Check live prices, availability, photos, and reviews on these trusted platforms (updated for 2026).",
+  "platforms": [
+    {
+      "name": "Google Travel",
+      "url": "https://www.google.com/travel/hotels?q=Caramoan%20Philippines",
+      "description": "Compare hotels, resorts (Tugawe Cove, Gota Village, etc.), maps, and reviews in one place.",
+      "button_text": "Search Hotels →",
+      "image": {
+        "url": "https://lakbaypinas.com/wp-content/uploads/2024/10/Snapinsta.app_92278092_544116412909187_3210896577557287524_n_1080.jpg",
+        "alt": "Luxury infinity pool resort"
+      }
+    },
+    {
+      "name": "Airbnb",
+      "url": "https://www.airbnb.com/s/Caramoan--Philippines/homes",
+      "description": "Unique homestays, beachfront tiny homes, family houses, and local rentals in Centro, Paniman, or near beaches.",
+      "button_text": "Search Rentals →",
+      "image": {
+        "url": "https://lakbaypinas.com/wp-content/uploads/2024/10/Snapinsta.app_441046446_18257079808245936_7719055114778370472_n_1080.jpg",
+        "alt": "Cozy beachfront homestay"
+      }
+    },
+    {
+      "name": "Agoda",
+      "url": "https://www.agoda.com/city/caramoan-ph.html",
+      "description": "Strong local deals on resorts, guesthouses, and beachfront spots — often the cheapest in PH.",
+      "button_text": "Search on Agoda →",
+      "image": {
+        "url": "https://lakbaypinas.com/wp-content/uploads/2024/10/Snapinsta.app_441023747_18257079850245936_2195235744411312505_n_1080.jpg",
+        "alt": "Beachfront resort view"
+      }
+    },
+    {
+      "name": "Booking.com",
+      "url": "https://www.booking.com/city/ph/caramoan.html",
+      "description": "Hotels, resorts, and guesthouses with free cancellation and detailed guest reviews.",
+      "button_text": "Search on Booking →",
+      "image": {
+        "url": "https://lakbaypinas.com/wp-content/uploads/2024/10/Snapinsta.app_41467617_163403487926512_5623677276349453129_n_1080.jpg",
+        "alt": "Seaside accommodation"
+      }
+    },
+    {
+      "name": "Expedia",
+      "url": "https://www.expedia.com/Caramoan-Hotels.d6157190.Travel-Guide-Hotels",
+      "description": "Resorts and packages — good for rewards points and bundled flight + stay deals.",
+      "button_text": "Search on Expedia →",
+      "image": {
+        "url": "https://lakbaypinas.com/wp-content/uploads/2024/10/Snapinsta.app_441017432_18257079817245936_734680094710377443_n_1080.jpg",
+        "alt": "Tropical resort"
+      }
+    }
+  ],
+  "tips": {
+    "title": "Booking Tips for Caramoan",
+    "items": [
+      "Book accommodations 3–6 months ahead for peak season (Dec–May, Holy Week, summer) — popular resorts and homestays book out fast.",
+      "Carry plenty of cash (small bills) — many smaller accommodations and eateries are cash-only; ATMs are very limited in Caramoan.",
+      "Confirm boat/port transfer arrangements with your accommodation — most offer pick-up from Guijalo Port or Paniman jump-off point."
+    ]
+  }
+}

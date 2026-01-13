@@ -1,0 +1,68 @@
+[
+  {
+    "id": "tugawe",
+    "name": "Tugawe Cove Resort",
+    "description": "An upscale 4-star hillside property overlooking the Pacific. It features a private beach cove, an iconic infinity pool with bay views, and Mediterranean-inspired rooms. Ideal for those seeking privacy and premium amenities away from the town center.",
+    "longDescription": "Perched on a hillside in Caramoan, Tugawe Cove Resort offers one of the most breathtaking infinity pools in the region, seemingly merging with the Pacific Ocean. Guests enjoy private beach access, spacious rooms with modern amenities, excellent dining options featuring fresh seafood, and panoramic sunset views. It's perfect for couples, honeymooners, or anyone wanting a luxurious escape after island-hopping adventures. The resort provides shuttle services to the boat terminal and is known for its attentive staff and serene atmosphere.",
+    "priceRange": "₱6,500–12,000/night",
+    "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/c8/a0/e0/a-view-of-the-infinity.jpg?w=1200&q=80",
+    "images": [
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/c8/a0/e0/a-view-of-the-infinity.jpg?w=1200&q=80",
+      "https://c8.alamy.com/comp/RWF015/infinity-pool-and-sea-view-at-resort-tugawe-cove-caramoan-philippines-RWF015.jpg",
+      "https://content.r9cdn.net/rimg/himg/84/ca/7d/expedia_group-439143-166594362-492567.jpg?width=1200",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/99/3e/32/tugawe-cove-resort.jpg?w=1200&q=80",
+      "https://q-xx.bstatic.com/xdata/images/hotel/max500/462648011.jpg?k=c652e53ca146089321e539a8bdfa79056283c6594584f72820400a3b5ecf8eb9&o="
+    ],
+    "highlights": ["Infinity Pool", "Private Beach Access", "Hillside Bay Views", "Sunset Dining", "Luxury Rooms"],
+    "category": "Luxury"
+  },
+  {
+    "id": "gota-village",
+    "name": "Gota Village Resort",
+    "description": "Famously known as the 'Home of Survivor,' this government-run resort offers native-style wooden cabins nestled between towering limestone cliffs and the sea. It is the closest resort to Gota and Little Gota beaches.",
+    "longDescription": "Gota Village Resort gained worldwide fame as the base camp for Survivor: Philippines and other seasons. Its traditional Filipino nipa huts and cabins are surrounded by dramatic limestone karsts and just steps from powdery beaches. Guests appreciate the eco-friendly vibe, direct beach access, on-site restaurant serving local Bicolano dishes, and its convenient location for early morning island-hopping departures. It's a nostalgic choice for Survivor fans and those wanting an authentic, nature-immersed stay.",
+    "priceRange": "₱3,500–6,500/night",
+    "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/76/22/03/gota-village-resort.jpg?w=1200&q=80",
+    "images": [
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/76/22/03/gota-village-resort.jpg?w=1200&q=80",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/22/24/a4/cabins.jpg?w=1200&q=80",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/26/8d/76/img-20190115-113534-largejpg.jpg?w=1200&q=80",
+      "https://rainbowjournal.com/wp-content/uploads/2014/03/Caramoan8.jpg",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/3a/0a/49/photo0jpg.jpg?w=1200&q=80"
+    ],
+    "highlights": ["Survivor Heritage", "Limestone Cliff Backdrop", "Eco-Cabin Living", "Direct Beach Access", "Local Cuisine"],
+    "category": "Mid-Range"
+  },
+  {
+    "id": "residencia",
+    "name": "Residencia de Salvacion",
+    "description": "A quiet beachfront sanctuary located in Brgy. Paniman. Known for its lush gardens and proximity to the boat jump-off point for island hopping. It offers a balance of comfort and a rustic seaside atmosphere.",
+    "longDescription": "Nestled right on the beach in Paniman (the main jump-off for Caramoan island hopping), Residencia de Salvacion provides peaceful garden surroundings, cozy air-conditioned rooms, and easy access to boats early in the morning. It's family-run with warm hospitality, great for budget-conscious travelers who still want beachfront vibes without the crowds of town-center stays. Breakfast is often included, and the location makes it ideal for multi-day island explorations.",
+    "priceRange": "₱3,000–5,500/night",
+    "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/55/ec/12/residencia-salvacion.jpg?w=1200&q=80",
+    "images": [
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/55/ec/12/residencia-salvacion.jpg?w=1200&q=80",
+      "https://media-cdn.tripadvisor.com/media/photo-s/08/55/ec/12/residencia-salvacion.jpg",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/fa/48/0f/residencia-salvacion.jpg?w=1200&q=80",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/55/ec/12/residencia-salvacion.jpg?w=900&h=500&q=80"
+    ],
+    "highlights": ["Beachfront Location", "Manicured Gardens", "Near Boat Terminal", "Family-Run", "Relaxed Atmosphere"],
+    "category": "Mid-Range"
+  },
+  {
+    "id": "homestays",
+    "name": "Town Center Homestays",
+    "description": "Located in the heart of Caramoan Centro, these stays (like La Casa Roa and Ramil’s Homestay) offer clean, air-conditioned rooms. Perfect for budget travelers who want easy access to local restaurants, markets, and the historic red-brick church.",
+    "longDescription": "Caramoan Centro homestays provide affordable, no-frills accommodation with friendly local hosts. Options like La Casa Roa, Ramil’s, or similar guesthouses feature clean rooms with AC, Wi-Fi, and sometimes home-cooked meals. Being in the town center means you're steps from eateries serving Bicol Express, tricycles to the port, and morning markets—ideal for backpackers or short stays focused on island hopping rather than resort luxury.",
+    "priceRange": "₱800–2,500/night",
+    "image": "https://a0.muscache.com/im/pictures/hosting/Hosting-1489775929333616430/original/131dd7c9-45bf-458f-832a-138b9492b65a.jpeg?im_w=1200",
+    "images": [
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1489775929333616430/original/131dd7c9-45bf-458f-832a-138b9492b65a.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/1fc28506-d659-4588-a787-4dd290a7c230.jpg",
+      "https://q-xx.bstatic.com/xdata/images/hotel/max600/521588973.jpg?k=621cc65360d3dbf728144c70d6facb0e8750f0d59252934eec17a24c2df9443c&o=",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/22/24/a4/cabins.jpg?w=1200&q=80"
+    ],
+    "highlights": ["Budget Friendly", "Town Center Access", "Authentic Hospitality", "Air-Conditioned Rooms", "Local Food Nearby"],
+    "category": "Budget"
+  }
+]
