@@ -1,246 +1,201 @@
 <script setup>
 import { useRoute, useRouter } from 'vue-router'
-import { onMounted, computed } from 'vue'
+import { onMounted, computed, ref } from 'vue'
 import Glide from '@glidejs/glide'
 import attractions from '@/data/attractions.json'
 
 const route = useRoute()
 const router = useRouter()
+const glideRef = ref(null)
 
 const attraction = attractions.find(a => a.id === route.params.id)
 
 const goBack = () => router.push('/explore')
 
+// Ensure we always have an array for images
+const displayImages = computed(() => {
+  if (!attraction) return []
+  return attraction.images?.length ? attraction.images : [attraction.image]
+})
+
 onMounted(() => {
-  if (attraction && (attraction.images?.length || 0) > 1) {
-    new Glide('.hero-carousel', {
+  if (attraction && displayImages.value.length > 1) {
+    glideRef.value = new Glide('.hero-carousel', {
       type: 'carousel',
-      startAt: 0,
-      perView: 1,
-      gap: 0,
       autoplay: 5000,
       hoverpause: true,
       animationDuration: 800,
-      animationTimingFunc: 'ease-in-out',
-      rewind: true,
+      gap: 0,
     }).mount()
   }
 })
 
-// Helper to check if social media exists
 const hasSocial = computed(() => {
-  return attraction?.socialMedia &&
-    (attraction.socialMedia.facebook || attraction.socialMedia.instagram)
+  return attraction?.socialMedia && (attraction.socialMedia.facebook || attraction.socialMedia.instagram)
 })
 </script>
 
 <template>
-  <div class="container py-12 mt-20">
-    <div v-if="attraction" class="max-w-5xl mx-auto px-4">
-      <!-- Back Button -->
+  <div class="container py-6 md:py-12 mt-16 md:mt-20 px-4 sm:px-6 lg:px-8">
+    <div v-if="attraction" class="max-w-6xl mx-auto">
+      
       <button @click="goBack"
-        class="mb-8 flex items-center gap-2 text-ocean font-medium hover:opacity-70 transition-opacity">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        class="mb-6 md:mb-8 flex items-center gap-2 text-ocean font-bold hover:opacity-70 transition-opacity p-2 -ml-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="m15 18-6-6 6-6" />
         </svg>
-        Back to Explore
+        <span class="text-sm md:text-base">Back to Explore</span>
       </button>
 
-      <!-- Hero Carousel Section -->
-      <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-12">
+      <div class="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl mb-8 md:mb-12 group">
         <div class="hero-carousel glide">
-          <!-- Slides -->
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
-              <li v-for="(imgSrc, index) in (attraction.images || [attraction.image])" :key="index"
-                class="glide__slide">
-                <img :src="imgSrc" :alt="`${attraction.name} - Image ${index + 1}`"
-                  class="w-full h-125 md:h-150 object-cover transition-transform duration-700 hover:scale-105" />
+              <li v-for="(imgSrc, index) in displayImages" :key="index" class="glide__slide">
+                <img :src="imgSrc" :alt="attraction.name"
+                  class="w-full h-[50vh] sm:h-[60vh] md:h-150 object-cover transition-transform duration-1000 group-hover:scale-105" />
               </li>
             </ul>
           </div>
 
-          <!-- Navigation Arrows - FIXED -->
-          <div v-if="(attraction.images || []).length > 1"
-            class="glide__arrows absolute inset-0 flex items-center justify-between px-6 pointer-events-none z-10"
+          <div v-if="displayImages.length > 1"
+            class="hidden sm:flex glide__arrows absolute inset-0 items-center justify-between px-4 md:px-8 pointer-events-none z-10"
             data-glide-el="controls">
-            <!-- Left Arrow -->
-            <button
-              class="glide__arrow glide__arrow--left pointer-events-auto w-14 h-14 rounded-full bg-white/40 backdrop-blur-lg flex items-center justify-center text-ocean hover:bg-white/60 transition-all duration-300 shadow-lg"
-              data-glide-dir="<">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="rotate-180"
-                viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
-                <path fill="currentColor"
-                  d="M16.15 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z" />
-              </svg>
+            <button class="glide__arrow glide__arrow--left pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/30 backdrop-blur-xl flex items-center justify-center text-ocean hover:bg-white/80 transition-all shadow-xl" data-glide-dir="<">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6l6 6l1.41-1.41L10.83 12z"/></svg>
             </button>
-
-            <!-- Right Arrow -->
-            <button
-              class="glide__arrow glide__arrow--right pointer-events-auto w-14 h-14 rounded-full bg-white/40 backdrop-blur-lg flex items-center justify-center text-ocean hover:bg-white/60 transition-all duration-300 shadow-lg"
-              data-glide-dir=">">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
-                <path fill="currentColor"
-                  d="M16.15 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z" />
-              </svg>
+            <button class="glide__arrow glide__arrow--right pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/30 backdrop-blur-xl flex items-center justify-center text-ocean hover:bg-white/80 transition-all shadow-xl" data-glide-dir=">">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M10 6L8.59 7.41L13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
             </button>
           </div>
 
-          <!-- Navigation Bullets -->
-          <div v-if="(attraction.images || []).length > 1"
-            class="glide__bullets absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3 z-10"
+          <div v-if="displayImages.length > 1"
+            class="glide__bullets absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 md:gap-3 z-10"
             data-glide-el="controls[nav]">
-            <button v-for="(_, index) in (attraction.images || [attraction.image])" :key="index"
-              class="glide__bullet w-3 h-3 rounded-full bg-white/60 hover:bg-white focus:bg-white transition"
+            <button v-for="(_, index) in displayImages" :key="index"
+              class="glide__bullet w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/40 border border-white/20 transition-all"
               :data-glide-dir="`=${index}`"></button>
           </div>
         </div>
 
-        <!-- Overlay Text (gradient + title) -->
-        <div
-          class="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent pointer-events-none flex flex-col justify-end p-8 md:p-12">
-          <div class="flex flex-wrap gap-3 mb-4">
-            <span
-              class="bg-green text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none flex flex-col justify-end p-6 md:p-12">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="bg-green text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
               {{ attraction.group }}
             </span>
-            <span
-              class="bg-white/20 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">
+            <span class="bg-white/20 backdrop-blur-md text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
               {{ attraction.category }}
             </span>
           </div>
-          <h1 class="text-4xl md:text-6xl font-black text-white drop-shadow-lg">
+          <h1 class="text-3xl sm:text-4xl md:text-6xl font-black text-white leading-tight drop-shadow-2xl">
             {{ attraction.name }}
           </h1>
         </div>
-
-        <!-- Small note about images -->
-        <div class="absolute top-6 left-6 z-10">
-          <p class="text-[10px] text-gray-200 italic bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">
-            Images from external sources (see Legal Disclaimer)
-          </p>
-        </div>
       </div>
 
-      <!-- Main Content Grid -->
-      <div class="grid lg:grid-cols-3 gap-12">
-        <!-- Left Column: Description + Highlights + Social -->
-        <div class="lg:col-span-2 space-y-12">
-          <section class="prose prose-lg max-w-none text-ocean">
-            <h2 class="text-3xl font-bold mb-6">About the Destination</h2>
-            <p class="leading-relaxed mb-8 text-lg opacity-90">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+        
+        <div class="lg:col-span-2 space-y-10 md:space-y-16">
+          <section class="prose prose-ocean max-w-none">
+            <h2 class="text-2xl md:text-3xl font-black text-ocean mb-4 md:mb-6">About the Destination</h2>
+            <p class="text-base md:text-lg leading-relaxed text-ocean/80">
               {{ attraction.longDescription }}
             </p>
           </section>
 
-          <div>
-            <h3 class="text-2xl font-bold mb-6 text-ocean">Key Highlights</h3>
-            <div class="grid sm:grid-cols-2 gap-4">
+          <section>
+            <h3 class="text-xl md:text-2xl font-black mb-6 text-ocean">Key Highlights</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div v-for="hl in attraction.highlights" :key="hl"
-                class="flex items-center gap-3 bg-green/5 p-4 rounded-xl border border-green/10 hover:bg-green/10 transition-colors">
-                <div class="bg-green text-white p-1.5 rounded-full shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
+                class="flex items-center gap-4 bg-green/5 p-4 md:p-5 rounded-2xl border border-green/10">
+                <div class="bg-green text-white p-2 rounded-full shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                 </div>
-                <span class="font-medium text-ocean">{{ hl }}</span>
+                <span class="font-bold text-ocean text-sm md:text-base">{{ hl }}</span>
               </div>
             </div>
-          </div>
+          </section>
 
-          <!-- SOCIAL MEDIA BUTTONS -->
-          <div v-if="hasSocial" class="pt-6 border-t border-ocean/20">
-            <h3 class="text-2xl font-bold mb-6 text-ocean">Follow on Social Media</h3>
-            <div class="flex flex-wrap gap-4">
+          <section v-if="hasSocial" class="pt-10 border-t border-ocean/10">
+            <h3 class="text-xl font-black mb-6 text-ocean uppercase tracking-tighter">Stay Connected</h3>
+            <div class="flex flex-col sm:flex-row gap-4">
               <a v-if="attraction.socialMedia.facebook" :href="attraction.socialMedia.facebook" target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-3 bg-[#1877F2] text-white px-6 py-3 rounded-xl hover:brightness-110 transition-all shadow-md hover:shadow-lg">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.49 0-1.955.925-1.955 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12z" />
-                </svg>
+                class="flex items-center justify-center gap-3 bg-[#1877F2] text-white px-8 py-4 rounded-2xl font-bold hover:scale-[1.02] transition-transform">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.49 0-1.955.925-1.955 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 22.954 24 17.99 24 12z"/></svg>
                 <span>Facebook</span>
               </a>
-
               <a v-if="attraction.socialMedia.instagram" :href="attraction.socialMedia.instagram" target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-3 bg-linear-to-r from-[#f09433] via-[#e6683c] to-[#dc2743] text-white px-6 py-3 rounded-xl hover:brightness-110 transition-all shadow-md hover:shadow-lg">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.239 2.242 1.301 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.069 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.239-3.608 1.301-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.069c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.239-2.242-1.301-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.069-4.85c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.239 3.608-1.301 1.266-.058 1.646-.069 4.85-.069zM12 0C8.741 0 8.332.012 7.052.07 5.775.13 4.905.398 4.14 1.163c-.765.765-.993 1.635-1.053 2.912C3.012 5.332 3 5.741 3 9v6c0 3.259.012 3.668.07 4.948.06 1.277.288 2.147 1.053 2.912.765.765 1.635.993 2.912 1.053 1.28.058 1.689.07 4.948.07h6c3.259 0 3.668-.012 4.948-.07 1.277-.06 2.147-.288 2.912-1.053.765-.765.993-1.635 1.053-2.912.058-1.28.07-1.689.07-4.948v-6c0-3.259-.012-3.668-.07-4.948-.06-1.277-.288-2.147-1.053-2.912C19.147.398 18.277.13 17 .07 15.668.012 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm7.846-11.404a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z" />
-                </svg>
+                class="flex items-center justify-center gap-3 bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white px-8 py-4 rounded-2xl font-bold hover:scale-[1.02] transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256"><!-- Icon from Skill Icons by tandpfun - https://github.com/tandpfun/skill-icons/blob/main/LICENSE --><g fill="none"><rect width="256" height="256" fill="url(#SVGWRUqebek)" rx="60"/><rect width="256" height="256" fill="url(#SVGfkNpldMH)" rx="60"/><path fill="#fff" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396s-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413s.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5s6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355s22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334s-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334"/><defs><radialGradient id="SVGWRUqebek" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="SVGfkNpldMH" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
                 <span>Instagram</span>
               </a>
             </div>
-          </div>
+          </section>
         </div>
 
-        <!-- Right Column: Sidebar -->
-        <div class="space-y-8 lg:sticky lg:top-24 h-fit">
-          <div class="p-8 rounded-3xl bg-white text-ocean/40 shadow-lg relative overflow-hidden">
-            <h4 class="text-xs font-black uppercase tracking-widest text-ocean/90 mb-6">Verified Sources</h4>
-            <ul class="space-y-4">
+        <div class="space-y-6 md:space-y-8 lg:sticky lg:top-28 h-fit">
+          <div class="bg-white p-6 md:p-8 rounded-[2rem] shadow-xl border border-ocean/5">
+            <h4 class="text-xs font-black uppercase tracking-widest text-ocean/40 mb-6">Verified Sources</h4>
+            <ul class="space-y-5">
               <li v-for="cite in attraction.citations" :key="cite.source">
-                <a :href="cite.link" target="_blank" rel="noopener noreferrer"
-                  class="group flex flex-col gap-1 hover:text-green transition-colors">
-                  <span class="text-ocean font-bold group-hover:underline">{{ cite.source }}</span>
-                  <span class="text-[10px] text-ocean/60 truncate">{{ cite.link }}</span>
+                <a :href="cite.link" target="_blank" class="block group">
+                  <div class="text-ocean font-bold text-sm group-hover:text-green transition-colors underline-offset-4 group-hover:underline">{{ cite.source }}</div>
+                  <div class="text-[10px] text-ocean/40 truncate mt-1">{{ cite.link }}</div>
                 </a>
               </li>
             </ul>
           </div>
 
-          <div class="p-8 rounded-3xl bg-white text-ocean/90 shadow-xl relative overflow-hidden">
+          <div class="bg-ocean p-6 md:p-8 rounded-[2rem] text-white shadow-2xl relative overflow-hidden">
             <div class="relative z-10">
-              <h4 class="font-bold mb-2 text-ocean">Visitor Tip</h4>
-              <p class="text-sm opacity-80 leading-relaxed">
-                Caramoan is a protected area. Please practice "Leave No Trace" principles. Avoid touching the limestone
-                karst and never take shells or sand as souvenirs.
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg">💡</div>
+                <h4 class="font-black uppercase tracking-tighter text-sm">Visitor Tip</h4>
+              </div>
+              <p class="text-sm leading-relaxed opacity-90 font-medium">
+                Caramoan is a protected area. Please practice "Leave No Trace" principles. Avoid touching the limestone karst and never take shells or sand as souvenirs.
               </p>
             </div>
+            <div class="absolute -bottom-12 -right-12 w-32 h-32 bg-white/5 rounded-full"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Not Found State -->
-    <div v-else class="text-center py-40">
-      <h2 class="text-2xl md:text-3xl font-bold text-ocean mb-4">
-        Destination Hidden in the Clouds...
-      </h2>
-      <p class="text-ocean/60 text-lg mb-8">
-        We couldn't find the attraction you're looking for.
-      </p>
-      <button @click="goBack"
-        class="px-8 py-4 bg-green text-white rounded-full font-bold hover:bg-[#5f663f] transition">
-        Return to Attractions
+    <div v-else class="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
+      <div class="text-8xl mb-6">🏝️</div>
+      <h2 class="text-2xl md:text-4xl font-black text-ocean mb-4">Island Not Found</h2>
+      <p class="text-ocean/60 max-w-md mb-8">This destination might be hidden by the tide. Try exploring our other islands.</p>
+      <button @click="goBack" class="px-10 py-4 bg-green text-white rounded-full font-black shadow-lg hover:scale-105 transition-transform">
+        Back to Maps
       </button>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* Carousel enhancements */
-.hero-carousel .glide__slide img {
-  filter: brightness(0.92) contrast(1.05);
+/* Glide Custom Styles */
+.glide__bullet--active {
+  background-color: var(--color-white) /* #fff = #ffffff */;
+  width: calc(var(--spacing) * 8) /* 2rem = 32px */;
 }
 
-.hero-carousel .glide__bullet--active {
-  background: white !important;
-  transform: scale(1.3);
+.glide__slide {
+  overflow: hidden;
 }
 
-.hero-carousel .glide__arrow:hover {
-  transform: scale(1.1);
-  background: white/70 !important;
+/* Fluid Typography for prose */
+.prose-ocean {
+  --tw-prose-body: var(--color-ocean);
+  --tw-prose-headings: var(--color-ocean);
 }
 
-/* Arrow icons (optional better look) */
-.glide__arrow {
-  font-size: 2rem;
-  font-weight: bold;
+/* Custom easing for the carousel */
+.glide__track {
+  cursor: grab;
+}
+.glide__track:active {
+  cursor: grabbing;
 }
 </style>
