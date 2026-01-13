@@ -69,14 +69,22 @@ const hasSocial = computed(() => {
             <button
               class="glide__arrow glide__arrow--left pointer-events-auto w-14 h-14 rounded-full bg-white/40 backdrop-blur-lg flex items-center justify-center text-ocean hover:bg-white/60 transition-all duration-300 shadow-lg"
               data-glide-dir="<">
-              ←
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="rotate-180"
+                viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+                <path fill="currentColor"
+                  d="M16.15 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z" />
+              </svg>
             </button>
 
             <!-- Right Arrow -->
             <button
               class="glide__arrow glide__arrow--right pointer-events-auto w-14 h-14 rounded-full bg-white/40 backdrop-blur-lg flex items-center justify-center text-ocean hover:bg-white/60 transition-all duration-300 shadow-lg"
               data-glide-dir=">">
-              →
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+                <path fill="currentColor"
+                  d="M16.15 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z" />
+              </svg>
             </button>
           </div>
 

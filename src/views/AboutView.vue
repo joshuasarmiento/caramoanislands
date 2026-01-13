@@ -1,7 +1,7 @@
 <template>
   <div class="container py-12 mt-20">
     <h1 class="text-4xl font-bold mb-8 text-center text-ocean"><span
-        class="font-island text-[4.5rem] text-green">About Caramoan Island</span> </h1>
+        class="font-island text-[3rem] md:text-[4.5rem] text-green">About Caramoan Island</span> </h1>
 
     <div class=" max-w-5xl mx-auto space-y-12">
       <section class="">

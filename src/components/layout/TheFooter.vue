@@ -87,7 +87,7 @@
                 </div>
               </div>
               <div class="p-6 border-t text-right">
-                <button @click="toggleAbout" class="px-8 py-2 bg-ocean text-white rounded-xl font-bold transition hover:opacity-90">Close</button>
+                <button @click="toggleAbout" class="px-8 py-2 bg-green text-white rounded-xl font-bold transition hover:opacity-90">Close</button>
               </div>
             </div>
           </div>
