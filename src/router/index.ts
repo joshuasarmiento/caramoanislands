@@ -21,8 +21,8 @@ const routes = [
     component: () => import('@/views/FAQsView.vue')
   },
   {
-    path: '/thankyou',
-    name: 'thankyou',
+    path: '/thank-you',
+    name: 'ThankYou',
     component: () => import('@/views/ThankYouView.vue')
   },
   {

@@ -1,8 +1,53 @@
 <script setup>
-/**
- * Using script setup for improved type safety and performance.
- * The form utilizes Formspree (ID: xjggvagr) to route inquiries.
- */
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+// Form states
+const isSubmitting = ref(false)
+const isSuccess = ref(false)
+const errorMessage = ref('')
+
+const handleSubmit = async (event) => {
+  event.preventDefault()
+  
+  isSubmitting.value = true
+  errorMessage.value = ''
+  
+  const form = event.target
+  const formData = new FormData(form)
+
+  try {
+    const response = await fetch('https://formspree.io/f/xjggvagr', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+
+    if (response.ok) {
+      // Success
+      isSuccess.value = true
+      form.reset() // clear form fields
+      
+      // Brief success message → then redirect
+      setTimeout(() => {
+        router.push('/thank-you')
+      }, 1800) // 1.8 seconds - enough to read the thank you message
+    } else {
+      // Formspree error
+      const data = await response.json()
+      errorMessage.value = data.error || 'Failed to send message. Please try again.'
+    }
+  } catch (err) {
+    // Network / other error
+    errorMessage.value = 'Network error. Please check your internet connection and try again.'
+  } finally {
+    isSubmitting.value = false
+  }
+}
 </script>
 
 <template>
@@ -15,11 +60,36 @@
     </p>
 
     <div class="max-w-5xl mx-auto px-4 space-y-12">
-      
+      <!-- === Contact Form Section === -->
       <div class="border p-8 rounded-3xl bg-white shadow-sm">
         <h2 class="text-2xl font-bold text-[--ocean] mb-6">Send us a Message</h2>
-        
-        <form action="https://formspree.io/f/xjggvagr" method="POST" class="space-y-6">
+
+        <!-- Success state (shown briefly before redirect) -->
+        <div 
+          v-if="isSuccess" 
+          class="text-center py-16 text-[--ocean]"
+        >
+        <div class="text-6xl mb-6">🎉</div>
+          <h3 class="text-2xl font-bold mb-4">Thank You!</h3>
+          <p class="text-[--ocean]/70">
+            Redirecting you to the thank-you page...
+          </p>
+        </div>
+
+        <!-- Error message -->
+        <div 
+          v-if="errorMessage && !isSuccess" 
+          class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl mb-6 text-center"
+        >
+          {{ errorMessage }}
+        </div>
+
+        <!-- Form (hidden after success) -->
+        <form 
+          v-if="!isSuccess" 
+          @submit="handleSubmit" 
+          class="space-y-6"
+        >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="flex flex-col">
               <label for="name" class="text-sm font-bold text-[--ocean] mb-2">Full Name</label>
@@ -30,6 +100,7 @@
                 required 
                 placeholder="Juan Dela Cruz"
                 class="border border-gray-200 p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#737B4C] transition"
+                :disabled="isSubmitting"
               >
             </div>
 
@@ -42,6 +113,7 @@
                 required 
                 placeholder="email@example.com"
                 class="border border-gray-200 p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#737B4C] transition"
+                :disabled="isSubmitting"
               >
             </div>
 
@@ -54,6 +126,7 @@
                 required 
                 placeholder="0912 345 6789"
                 class="border border-gray-200 p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#737B4C] transition"
+                :disabled="isSubmitting"
               >
             </div>
 
@@ -64,6 +137,7 @@
                 name="recipient_category" 
                 required
                 class="border border-gray-200 p-4 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-[#737B4C] transition appearance-none"
+                :disabled="isSubmitting"
               >
                 <option value="General Inquiry (caramoanislands@duck.com)">General Inquiry</option>
                 <option value="LGU Official (lgucaramoan.mo@gmail.com)">LGU - Official Inquiries</option>
@@ -81,6 +155,7 @@
               required 
               placeholder="City, Province, or Full Address"
               class="border border-gray-200 p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#737B4C] transition"
+              :disabled="isSubmitting"
             >
           </div>
 
@@ -93,6 +168,7 @@
               required 
               placeholder="How can we help you?"
               class="border border-gray-200 p-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#737B4C] transition"
+              :disabled="isSubmitting"
             ></textarea>
           </div>
 
@@ -100,18 +176,20 @@
 
           <button 
             type="submit" 
-            class="w-full md:w-auto bg-[#737B4C] text-white px-10 py-4 rounded-full font-bold hover:bg-[#5f663f] transition shadow-lg"
+            :disabled="isSubmitting"
+            class="w-full md:w-auto bg-[#737B4C] text-white px-10 py-4 rounded-full font-bold 
+                   hover:bg-[#5f663f] transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Send Message
+            {{ isSubmitting ? 'Sending...' : 'Send Message' }}
           </button>
         </form>
       </div>
 
+      <!-- LGU Contacts Section -->
       <div class="border p-8 rounded-3xl">
         <h2 class="text-2xl font-bold text-[--ocean] mb-6">Municipality of Caramoan (LGU) Official Contacts</h2>
         <p class="text-[--ocean]/80 mb-6 leading-relaxed">
-          The Local Government Unit handles tourism information, visitor permits, island-hopping coordination, and
-          municipal services.
+          The Local Government Unit handles tourism information, visitor permits, island-hopping coordination, and municipal services.
         </p>
         <ul class="space-y-4 text-[--ocean] text-lg">
           <li>
@@ -134,6 +212,7 @@
         </ul>
       </div>
 
+      <!-- References -->
       <div class="mt-12 text-center text-sm text-[--ocean]/70">
         <h3 class="text-xl font-bold text-[--ocean] mb-4">References & Sources</h3>
         <ul class="flex flex-wrap justify-center gap-6">
