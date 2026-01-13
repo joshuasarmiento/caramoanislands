@@ -86,7 +86,7 @@ const toggleDisclaimer = () => {
 
             <div class="p-6 border-t bg-gray-50 text-right">
               <button @click="toggleDisclaimer"
-                class="px-8 py-2 bg-[--ocean] text-[--ocean] rounded-xl font-bold hover:bg-[--ocean]/90 transition">
+                class="px-8 py-2 bg-[#737B4C] text-white rounded-xl font-bold hover:bg-[--ocean]/90 transition">
                 I Understand
               </button>
             </div>

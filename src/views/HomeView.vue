@@ -15,7 +15,7 @@
     <div class="absolute inset-0 z-20 flex flex-col justify-center items-center text-center">
       <Container>
         <div class="flex flex-col gap-0">
-          <h1 class="font-island text-[3rem] text-[#737B4C] sm:text-[6rem] font-black drop-shadow-lg">
+          <h1 class="font-island text-[#737B4C] text-[3rem] md:text-[6rem] lg:text-[7rem] drop-shadow-lg">
             CARAMOAN
           </h1>
           <h1 class="z-10 sm:-mt-12 text-white text-[2rem] sm:text-[3.5rem] font-extralight drop-shadow-md">
