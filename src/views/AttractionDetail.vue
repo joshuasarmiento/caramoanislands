@@ -9,7 +9,7 @@ const router = useRouter()
 
 const attraction = attractions.find(a => a.id === route.params.id)
 
-const goBack = () => router.push('/attractions')
+const goBack = () => router.push('/explore')
 
 onMounted(() => {
   if (attraction && (attraction.images?.length || 0) > 1) {

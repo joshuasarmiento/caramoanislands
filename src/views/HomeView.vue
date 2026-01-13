@@ -29,7 +29,7 @@
     <footer class="absolute bottom-0 w-full z-30 py-8">
       <div class="pt-8 text-center">
         <p class="text-xs text-white/80">
-          © {{ new Date().getFullYear() }} CaramoanIslands.ph. All rights reserved.
+          © {{ new Date().getFullYear() }} CaramoanIslands.ph. All rights reserved. Handcrafted in Caramoan.
         </p>
       </div>
     </footer>
