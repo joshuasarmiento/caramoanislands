@@ -4,12 +4,20 @@
 
 @theme {
     --font-sans: "Cinzel", serif;
+    --color-ocean: #0c0a09;
+    --color-green: #737B4C;
 }
 
 .font-island {
   font-family: "Island Moments", cursive;
   font-weight: 400;
   font-style: normal;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Modern 2026 enhancements */

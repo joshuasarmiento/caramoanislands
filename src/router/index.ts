@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   { path: '/',              name: 'home',           component: () => import('@/views/HomeView.vue') },
   { path: '/about',         name: 'about',          component: () => import('@/views/AboutView.vue') },
-  { path: '/attractions',   name: 'attractions',    component: () => import('@/views/AttractionsView.vue') },
+  { path: '/explore',   name: 'explore',    component: () => import('@/views/AttractionsView.vue') },
   { path: '/accommodations',name: 'accommodations', component: () => import('@/views/AccommodationsView.vue') },
   { path: '/dining',        name: 'dining',         component: () => import('@/views/DiningView.vue') },
   { path: '/how-to-get-there', name: 'how-to-get-there', component: () => import('@/views/HowToGetThereView.vue') },

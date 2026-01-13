@@ -8,7 +8,7 @@ const dropdownOpen = ref(false)
 
 const mainLinks = [
   { name: 'About', path: '/about' },
-  { name: 'Attractions', path: '/attractions' },
+  { name: 'Explore', path: '/explore' },
   { name: 'How to Get There', path: '/how-to-get-there' },
   { name: 'Contact', path: '/contact' },
 ]
@@ -34,8 +34,8 @@ const moreLinks = [
           v-for="link in mainLinks"
           :key="link.path"
           :to="link.path"
-          class="px-4 py-2 rounded-full text-[--ocean] hover:text-[--turquoise] hover:bg-[--turquoise]/5 transition-all text-sm font-semibold"
-          :class="{ 'text-[--turquoise] bg-[--turquoise]/5': route.path === link.path }"
+          class="px-4 py-2 rounded-full text-ocean hover:text-green hover:bg-green/5 transition-all text-sm font-semibold"
+          :class="{ 'text-green bg-green/5': route.path === link.path }"
         >
           {{ link.name }}
         </router-link>
@@ -46,8 +46,8 @@ const moreLinks = [
           @mouseleave="dropdownOpen = false"
         >
           <button 
-            class="px-4 py-2 rounded-full text-[--ocean] group-hover:text-[--turquoise] transition-all text-sm font-semibold flex items-center gap-1"
-            :class="{ 'text-[--turquoise]': moreLinks.some(l => l.path === route.path) }"
+            class="px-4 py-2 rounded-full text-ocean group-hover:text-green transition-all text-sm font-semibold flex items-center gap-1"
+            :class="{ 'text-green': moreLinks.some(l => l.path === route.path) }"
           >
             More
             <svg 
@@ -68,8 +68,8 @@ const moreLinks = [
                 v-for="link in moreLinks"
                 :key="link.path"
                 :to="link.path"
-                class="block px-5 py-2.5 text-sm text-[--ocean] hover:bg-[--turquoise]/10 hover:text-[--turquoise] transition-colors"
-                :class="{ 'text-[--turquoise] font-bold': route.path === link.path }"
+                class="block px-5 py-2.5 text-sm text-ocean hover:bg-green/10 hover:text-green transition-colors"
+                :class="{ 'text-green font-bold': route.path === link.path }"
                 @click="dropdownOpen = false"
               >
                 {{ link.name }}
@@ -80,7 +80,7 @@ const moreLinks = [
       </div>
 
       <button 
-        class="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors text-[--ocean]" 
+        class="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors text-ocean" 
         @click="mobileOpen = !mobileOpen"
         aria-label="Toggle Menu"
       >
@@ -98,24 +98,24 @@ const moreLinks = [
             v-for="link in mainLinks"
             :key="link.path"
             :to="link.path"
-            class="block px-4 py-3 rounded-xl text-[--ocean] hover:bg-[--turquoise]/5 hover:text-[--turquoise] font-medium"
+            class="block px-4 py-3 rounded-xl text-ocean hover:bg-green/5 hover:text-green font-medium"
             @click="mobileOpen = false"
-            :class="{ 'bg-[--turquoise]/10 text-[--turquoise]': route.path === link.path }"
+            :class="{ 'bg-green/10 text-green': route.path === link.path }"
           >
             {{ link.name }}
           </router-link>
 
-          <div class="my-2 border-t border-[--ocean]/10"></div>
+          <div class="my-2 border-t border-ocean/10"></div>
           
-          <p class="px-4 py-2 text-xs font-bold uppercase tracking-widest text-[--ocean]/40">Discover More</p>
+          <p class="px-4 py-2 text-xs font-bold uppercase tracking-widest text-ocean/40">Discover More</p>
           
           <router-link
             v-for="link in moreLinks"
             :key="link.path"
             :to="link.path"
-            class="block px-4 py-3 rounded-xl text-[--ocean] hover:bg-[--turquoise]/5 hover:text-[--turquoise]"
+            class="block px-4 py-3 rounded-xl text-ocean hover:bg-green/5 hover:text-green"
             @click="mobileOpen = false"
-            :class="{ 'bg-[--turquoise]/10 text-[--turquoise]': route.path === link.path }"
+            :class="{ 'bg-green/10 text-green': route.path === link.path }"
           >
             {{ link.name }}
           </router-link>

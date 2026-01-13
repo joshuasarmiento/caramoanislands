@@ -1,48 +1,12 @@
 <template>
   <div class="container py-12 mt-20">
-    <h1 class="text-4xl font-bold mb-8 text-center text-[--ocean]"><span
-        class="font-island text-[4.5rem] text-[#737B4C]">About Caramoan Island</span> </h1>
+    <h1 class="text-4xl font-bold mb-8 text-center text-ocean"><span
+        class="font-island text-[4.5rem] text-green">About Caramoan Island</span> </h1>
 
-    <section class="">
-      <div class="text-[--ocean] p-8 space-y-4 max-w-4xl mx-auto">
-        <p>
-          Welcome to <strong>CaramoanIslands.ph</strong> — a personal, independent guide to the Caramoan Peninsula
-          created
-          from the heart by one of its own sons.
-        </p>
-        <p>
-          I’m a Caramoanon developer who grew up right here in this beautiful peninsula. I’ve seen Caramoan when it was
-          still our quiet little secret, and now I watch with pride as the world slowly discovers its magic — the hidden
-          lagoons, vanishing sandbars, ancient legends, and the genuine warmth of our people.
-        </p>
-        <p>
-          This website is not run by any tourism board, agency, or sponsor. It’s just me — one local who loves his
-          hometown and wants to help visitors experience Caramoan the right way: respectfully, responsibly, and with
-          real
-          appreciation for what makes it special.
-        </p>
-        <p class="font-medium">
-          What you’ll find here:
-        </p>
-        <ul class="list-disc pl-6 space-y-3">
-          <li>Up-to-date 2026 information on island hopping, real costs, and practical itineraries</li>
-          <li>Detailed guides to every major spot, including photos, stories, and insider tips</li>
-          <li>Recommendations for local food, family-run homestays, and Caramoanon-owned businesses</li>
-          <li>Adventure videos and visual inspiration straight from real experiences</li>
-          <li>Reminders to travel responsibly — leave no trace, protect our reefs, and support our community</li>
-        </ul>
-        <p>
-          Thank you for visiting. If you have questions, suggestions, or want to share your own Caramoan story, feel
-          free
-          to reach out through the <a href="/contact" class="underline hover:text-blue-600">Contact page</a>.
-        </p>
-      </div>
-    </section>
-
-    <div class="p-8 max-w-4xl mx-auto space-y-12">
-      <section class="pt-12 border-t border-[--ocean]/20">
-        <h2 class="text-2xl font-bold mb-4 text-[--ocean]">History: From Legends to the Global Stage</h2>
-        <div class="text-[--ocean] space-y-4 leading-relaxed">
+    <div class=" max-w-5xl mx-auto space-y-12">
+      <section class="">
+        <h2 class="text-2xl font-bold mb-4 text-ocean">History: From Legends to the Global Stage</h2>
+        <div class="text-ocean space-y-4 leading-relaxed">
           <p>
             Caramoan’s story begins with a legend. The town was originally called <em>"Carahan,"</em> named after the
             sea turtles that once nested in abundance along its shores. Over centuries, as Spanish missionaries arrived
@@ -61,8 +25,8 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold mb-4 text-[--ocean]">Geography: The Edge of the Peninsula</h2>
-        <div class="text-[--ocean] space-y-4 leading-relaxed">
+        <h2 class="text-2xl font-bold mb-4 text-ocean">Geography: The Edge of the Peninsula</h2>
+        <div class="text-ocean space-y-4 leading-relaxed">
           <p>
             Located at the lower tip of Camarines Sur in the Bicol Region, Caramoan is not just a single island, but a
             jagged peninsula jutting out into the Pacific Ocean, surrounded by a scattering of limestone jewels. The
@@ -80,8 +44,8 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold mb-4 text-[--ocean]">Culture: The Warmth of the "Oragon"</h2>
-        <div class="text-[--ocean] space-y-4 leading-relaxed">
+        <h2 class="text-2xl font-bold mb-4 text-ocean">Culture: The Warmth of the "Oragon"</h2>
+        <div class="text-ocean space-y-4 leading-relaxed">
           <p>
             To visit Caramoan is to experience the heart of Bicolandia. The locals, often described as <em>Oragon</em>
             (strong-willed, brave, and feisty), are deeply hospitable. Life here revolves around the rhythm of the
@@ -97,10 +61,10 @@
         </div>
       </section>
 
-      <section class="mt-16 pt-8 border-t border-[--ocean]/20">
-        <h3 class="text-xl font-bold mb-6 text-[--ocean]">References & Notable Sources</h3>
+      <section class="mt-16 pt-8 border-t border-ocean/20">
+        <h3 class="text-xl font-bold mb-6 text-ocean">References & Notable Sources</h3>
 
-        <div class="grid md:grid-cols-2 gap-8 text-sm text-[--ocean]/80">
+        <div class="grid md:grid-cols-2 gap-8 text-sm text-ocean/80">
           <div>
             <h4 class="font-bold mb-2">Historical & Cultural Data</h4>
             <ul class="list-disc list-inside space-y-2">
@@ -108,19 +72,19 @@
                 <strong>Etymology ("Carahan"):</strong> Derived from local oral history regarding sea turtles
                 (*Chelonioidea*) and municipal archives.
                 <a href="https://istaran.wordpress.com/caramoan/history/" target="_blank"
-                  class="underline hover:text-[--ocean-dark]">View Local History Record</a>
+                  class="underline hover:text-oceandark]">View Local History Record</a>
               </li>
               <li>
                 <strong>St. Michael the Archangel Parish:</strong> Founded 1619 by Franciscan missionaries (Fray
                 Francisco dela Cruz y Oropesa).
                 <a href="https://commons.wikimedia.org/wiki/File:St._Michael_Parish_Church_of_Caramoan.jpg"
-                  target="_blank" class="underline hover:text-[--ocean-dark]">View Historical Marker</a>
+                  target="_blank" class="underline hover:text-oceandark]">View Historical Marker</a>
               </li>
               <li>
                 <strong>Protected Area Status:</strong> Established as *Caramoan National Park* via Proclamation No. 291
                 (1938).
                 <a href="https://www.officialgazette.gov.ph/" target="_blank"
-                  class="underline hover:text-[--ocean-dark]">Official Gazette of the Philippines</a>
+                  class="underline hover:text-oceandark]">Official Gazette of the Philippines</a>
               </li>
             </ul>
           </div>
@@ -131,13 +95,13 @@
               <li>
                 <strong>Survivor US (Season 25):</strong> <em>Survivor: Philippines</em>, filmed March–April 2012.
                 <a href="https://en.wikipedia.org/wiki/Survivor:_Philippines" target="_blank"
-                  class="underline hover:text-[--ocean-dark]">Source</a>
+                  class="underline hover:text-oceandark]">Source</a>
               </li>
               <li>
                 <strong>Survivor US (Season 26):</strong> <em>Survivor: Caramoan</em> (Fans vs. Favorites), filmed
                 May–June 2012.
                 <a href="https://en.wikipedia.org/wiki/Survivor:_Caramoan" target="_blank"
-                  class="underline hover:text-[--ocean-dark]">Source</a>
+                  class="underline hover:text-oceandark]">Source</a>
               </li>
               <li>
                 <strong>International Seasons:</strong> Filming location for <em>Koh-Lanta</em> (France), <em>Survivor
@@ -147,25 +111,25 @@
                 <strong>Matukad Myth:</strong> The "Enchanted Milkfish" legend is a local folklore documented by travel
                 journalists.
                 <a href="http://pinoywanderingboy.blogspot.com/2012/12/caramoan-lonesome-bangus-in-matukad.html"
-                  target="_blank" class="underline hover:text-[--ocean-dark]">Read the Legend</a>
+                  target="_blank" class="underline hover:text-oceandark]">Read the Legend</a>
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section class="mt-16 pt-12 border-t border-[--ocean]/20 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-[--ocean] max-w-4xl mx-auto mb-8">
+      <section class="mt-16 pt-12 border-t border-ocean/20 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-ocean max-w-5xl mx-auto mb-8">
           Experience the Adventure: Watch a Real Caramoan Journey
         </h2>
-        <p class="text-[--ocean]/80 max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p class="text-ocean/80 max-w-3xl mx-auto mb-10 leading-relaxed">
           Dive into the magic of Caramoan through this exciting adventure vlog. Follow along as explorers discover
           hidden
           lagoons, climb to the legendary Enchanted Lagoon, and feel the thrill of the islands — including the famous
           <em>Alamat ng Bangus</em> story.
         </p>
 
-        <div class="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-black">
+        <div class="glass max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-black">
           <div class="aspect-video">
             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/njDmBKibUeo?si=0nRpi4SgINnTi2vd"
               title="Caramoan Islands Adventure Tour – Alamat ng Bangus & Bicol Exploration" frameborder="0"
@@ -174,7 +138,7 @@
           </div>
         </div>
 
-        <p class="mt-6 text-sm text-[--ocean]/60 italic">
+        <p class="mt-6 text-sm text-ocean/60 italic">
           A fun, real-time adventure episode capturing the spirit of Caramoan — perfect for getting excited about your
           own
           trip!

@@ -33,7 +33,7 @@ onMounted(() => {
     <div v-if="accommodation" class="max-w-5xl mx-auto px-4">
       <button 
         @click="goBack"
-        class="mb-8 flex items-center gap-2 text-[--ocean] font-medium hover:opacity-70 transition-opacity"
+        class="mb-8 flex items-center gap-2 text-ocean font-medium hover:opacity-70 transition-opacity"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -55,7 +55,7 @@ onMounted(() => {
                 <img 
                   :src="imgSrc" 
                   :alt="`${accommodation.name} - ${index + 1}`"
-                  class="w-full h-[500px] md:h-[600px] object-cover transition-transform duration-700 hover:scale-105"
+                  class="w-full h-125 md:h-150 object-cover transition-transform duration-700 hover:scale-105"
                 />
               </li>
             </ul>
@@ -66,8 +66,8 @@ onMounted(() => {
             class="glide__arrows absolute inset-0 flex items-center justify-between px-6 pointer-events-none z-10"
             data-glide-el="controls"
           >
-            <button class="glide__arrow glide__arrow--left pointer-events-auto w-14 h-14 rounded-full bg-white/30 backdrop-blur-lg flex items-center justify-center text-[--ocean] hover:bg-white/50 transition-all duration-300 shadow-lg" data-glide-dir="<">←</button>
-            <button class="glide__arrow glide__arrow--right pointer-events-auto w-14 h-14 rounded-full bg-white/30 backdrop-blur-lg flex items-center justify-center text-[--ocean] hover:bg-white/50 transition-all duration-300 shadow-lg" data-glide-dir=">">→</button>
+            <button class="glide__arrow glide__arrow--left pointer-events-auto w-14 h-14 rounded-full bg-white/30 backdrop-blur-lg flex items-center justify-center text-ocean hover:bg-white/50 transition-all duration-300 shadow-lg" data-glide-dir="<">←</button>
+            <button class="glide__arrow glide__arrow--right pointer-events-auto w-14 h-14 rounded-full bg-white/30 backdrop-blur-lg flex items-center justify-center text-ocean hover:bg-white/50 transition-all duration-300 shadow-lg" data-glide-dir=">">→</button>
           </div>
 
           <div 
@@ -85,7 +85,7 @@ onMounted(() => {
         </div>
 
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none flex flex-col justify-end p-8 md:p-12">
+        <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent pointer-events-none flex flex-col justify-end p-8 md:p-12">
           <div class="flex flex-wrap gap-3 mb-4">
             <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">{{ accommodation.category }}</span>
             <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">Accommodation</span>
@@ -96,35 +96,35 @@ onMounted(() => {
 
       <div class="grid lg:grid-cols-3 gap-12">
         <div class="lg:col-span-2 space-y-12">
-          <section class="prose prose-lg max-w-none text-[--ocean]">
+          <section class="prose prose-lg max-w-none text-ocean">
             <h2 class="text-3xl font-bold mb-6">About the Property</h2>
             <p class="leading-relaxed mb-8 text-lg opacity-90">{{ accommodation.longDescription || accommodation.description }}</p>
           </section>
 
           <div>
-            <h3 class="text-2xl font-bold mb-6 text-[--ocean]">Key Highlights</h3>
+            <h3 class="text-2xl font-bold mb-6 text-ocean">Key Highlights</h3>
             <div class="grid sm:grid-cols-2 gap-4">
-              <div v-for="hl in accommodation.highlights" :key="hl" class="flex items-center gap-3 bg-[--ocean]/5 p-4 rounded-xl border border-[--ocean]/10 hover:bg-[--ocean]/10 transition-colors">
-                <div class="bg-[--ocean] text-white p-1.5 rounded-full flex-shrink-0">
+              <div v-for="hl in accommodation.highlights" :key="hl" class="flex items-center gap-3 bg-ocean/5 p-4 rounded-xl border border-ocean/10 hover:bg-ocean/10 transition-colors">
+                <div class="bg-ocean text-white p-1.5 rounded-full shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
                 </div>
-                <span class="font-medium text-[--ocean]">{{ hl }}</span>
+                <span class="font-medium text-ocean">{{ hl }}</span>
               </div>
             </div>
           </div>
         </div>
 
         <div class="space-y-8 lg:sticky lg:top-24 h-fit">
-          <div class="p-8 rounded-3xl bg-[--ocean] text-[--ocean]/40 shadow-xl">
+          <div class="p-8 rounded-3xl bg-ocean text-ocean/40 shadow-xl">
             <h4 class="text-lg font-bold mb-4">Price Range</h4>
             <p class="text-2xl font-semibold">{{ accommodation.priceRange }}</p>
             <p class="text-sm mt-2 opacity-90">Per night (approximate, may vary by season)</p>
           </div>
 
-          <div class="p-8 rounded-3xl bg-[--ocean] text-[--ocean]/40 shadow-xl">
-            <h4 class="font-bold mb-2 text-[--ocean]">Visitor Tip</h4>
+          <div class="p-8 rounded-3xl bg-ocean text-ocean/40 shadow-xl">
+            <h4 class="font-bold mb-2 text-ocean">Visitor Tip</h4>
             <p class="text-sm opacity-80 leading-relaxed">
               Book in advance during peak season (December–May). Many places offer boat transfer coordination—ask when reserving.
             </p>
@@ -134,8 +134,8 @@ onMounted(() => {
     </div>
 
     <div v-else class="text-center py-40">
-      <h2 class="text-3xl font-bold text-[--ocean] mb-4">Accommodation Not Found</h2>
-      <button @click="goBack" class="mt-8 px-8 py-4 bg-[--ocean] text-white rounded-full font-bold hover:bg-opacity-90 transition">
+      <h2 class="text-3xl font-bold text-ocean mb-4">Accommodation Not Found</h2>
+      <button @click="goBack" class="mt-8 px-8 py-4 bg-ocean text-white rounded-full font-bold hover:bg-opacity-90 transition">
         Back to List
       </button>
     </div>

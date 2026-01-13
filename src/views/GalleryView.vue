@@ -78,19 +78,19 @@ const initObserver = async () => {
 <template>
   <div class="container py-16 mt-20">
     <div class="text-center mb-10 px-4">
-      <h1 class="font-island text-7xl text-[#737B4C] mb-4">Discovery Gallery</h1>
-      <p class="text-[--ocean]/60">Explore Caramoan through your preferred lens.</p>
+      <h1 class="font-island text-7xl text-green mb-4">Discovery Gallery</h1>
+      <p class="text-ocean/60">Explore Caramoan through your preferred lens.</p>
       <!-- <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-8">
         <div class="flex gap-2 p-1 bg-gray-100 rounded-2xl">
           <button v-for="cat in ['All', 'Island', 'Stay', 'Operator']" :key="cat"
             @click="activeFilter = cat"
-            :class="activeFilter === cat ? 'bg-white shadow-sm text-[--ocean]' : 'text-gray-500'"
+            :class="activeFilter === cat ? 'bg-white shadow-sm text-ocean' : 'text-gray-500'"
             class="px-4 py-2 rounded-xl text-sm font-bold transition-all"
           >
             {{ cat }}s
           </button>
         </div>
-        <select v-model="sortBy" class="bg-white border border-gray-200 px-4 py-2.5 rounded-2xl text-sm font-bold text-[--ocean]">
+        <select v-model="sortBy" class="bg-white border border-gray-200 px-4 py-2.5 rounded-2xl text-sm font-bold text-ocean">
           <option value="default">Default Order</option>
           <option value="alpha">A - Z (Name)</option>
           <option value="random">Shuffle</option>
@@ -115,7 +115,7 @@ const initObserver = async () => {
     <Teleport to="body">
       <Transition name="fade">
         <div v-if="selectedImage" 
-          class="fixed inset-0 z-[150] bg-black/90 flex items-center justify-center p-4 md:p-10 backdrop-blur-sm"
+          class="fixed inset-0 z-150 bg-black/90 flex items-center justify-center p-4 md:p-10 backdrop-blur-sm"
           @click.self="closeModal"
         >
           <button @click="closeModal" class="absolute top-6 right-6 text-white text-5xl font-light z-50 hover:text-gray-300 transition">&times;</button>
@@ -127,14 +127,15 @@ const initObserver = async () => {
 
             <div class="md:w-1/3 p-8 md:p-12 flex flex-col justify-center">
               <span class="text-[--turquoise] font-black uppercase text-xs tracking-widest mb-2">{{ selectedImage.category }}</span>
-              <h2 class="text-3xl font-bold text-[--ocean] mb-4 leading-tight">{{ selectedImage.title }}</h2>
-              <p class="text-[--ocean]/70 leading-relaxed text-sm md:text-base">
+              <h2 class="text-3xl font-bold text-ocean mb-4 leading-tight">{{ selectedImage.title }}</h2>
+              <p class="text-ocean/70 leading-relaxed text-sm md:text-base">
                 {{ selectedImage.desc || 'No description available for this view.' }}
               </p>
               
-              <button @click="closeModal" class="mt-8 bg-[--ocean] text-white py-4 rounded-2xl font-bold hover:brightness-110 transition">
+              <button @click="closeModal" class="mt-8 bg-ocean text-white py-4 rounded-2xl font-bold hover:brightness-110 transition">
                 Return to Gallery
               </button>
+
 
               <p class="mt-6 text-[10px] text-gray-400 italic">
                 Source: External Link (Check Legal Disclaimer for Copyright)
