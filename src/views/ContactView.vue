@@ -137,6 +137,62 @@ const handleSubmit = async (event) => {
         </form>
       </div>
 
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-red-50 border-2 border-red-100 rounded-[2.5rem] p-8 md:p-10 shadow-sm">
+          <h2 class="text-2xl font-black text-red-600 mb-6 flex items-center gap-3">
+            <span class="w-2 h-8 bg-red-600 rounded-full"></span>
+            Emergency Hotlines
+          </h2>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center border-b border-red-200/50 pb-3">
+              <span class="font-bold text-ocean">PNP Caramoan</span>
+              <a href="tel:09985985990" class="font-black text-red-600 hover:underline">0998-598-5990</a>
+            </div>
+            <div class="flex justify-between items-center border-b border-red-200/50 pb-3">
+              <span class="font-bold text-ocean">MDRRMO</span>
+              <a href="tel:09094641168" class="font-black text-red-600 hover:underline">0909-464-1168</a>
+            </div>
+            <div class="flex justify-between items-center border-b border-red-200/50 pb-3">
+              <span class="font-bold text-ocean">Rural Health Unit</span>
+              <a href="tel:09171168353" class="font-black text-red-600 hover:underline">0917-116-8353</a>
+            </div>
+            <div class="flex justify-between items-center border-b border-red-200/50 pb-3">
+              <span class="font-bold text-ocean">BFP Caramoan</span>
+              <a href="tel:09106779916" class="font-black text-red-600 hover:underline">0910-677-9916</a>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-ocean">Municipal Hospital</span>
+              <a href="tel:09175230466" class="font-black text-red-600 hover:underline">0917-523-0466</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-ocean/5 border-2 border-ocean/5 rounded-[2.5rem] p-8 md:p-10">
+          <h2 class="text-2xl font-black text-ocean mb-6 flex items-center gap-3">
+            <span class="w-2 h-8 bg-green rounded-full"></span>
+            Tourism Hotlines
+          </h2>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center border-b border-ocean/10 pb-3">
+              <span class="font-bold text-ocean/70">Bikal Tourism Booth</span>
+              <a href="tel:09853784038" class="font-black text-ocean hover:text-green transition-colors">09853784038</a>
+            </div>
+            <div class="flex justify-between items-center border-b border-ocean/10 pb-3">
+              <span class="font-bold text-ocean/70">Paniman Tourism Booth</span>
+              <a href="tel:09853784037" class="font-black text-ocean hover:text-green transition-colors">09853784037</a>
+            </div>
+            <div class="flex justify-between items-center border-b border-ocean/10 pb-3">
+              <span class="font-bold text-ocean/70">Guijalo Tourism Booth</span>
+              <a href="tel:09853784036" class="font-black text-ocean hover:text-green transition-colors">09853784036</a>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-ocean/70">Office Hotline</span>
+              <a href="tel:09074665593" class="font-black text-ocean hover:text-green transition-colors">09074665593</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="grid lg:grid-cols-5 gap-8">
         <div class="lg:col-span-3 bg-ocean rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
           <div class="relative z-10">
