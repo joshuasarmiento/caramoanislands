@@ -4,8 +4,6 @@
       class="absolute w-full h-full object-cover left-0 top-0 scale-105 high-quality-video" autoplay muted loop
       playsinline preload="auto" poster="/caramoan-poster.jpg">
       <source src="/video/caramoan4k.webm" type="video/webm" />
-      <source src="/video/caramoan4k.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
     </video>
 
     <div
