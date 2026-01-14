@@ -30,7 +30,7 @@ const tourOperators = ref(tourOperatorsData)
           v-if="op.featured"
           class="absolute top-0 right-0 z-10 w-24 h-24 md:w-32 md:h-32 pointer-events-none"
         >
-          <div class="bg-gradient-to-r from-orange-400 to-amber-600 text-white text-[10px] md:text-xs font-black py-1.5 rotate-45 absolute top-6 right-[-28px] md:top-8 md:right-[-32px] w-40 md:w-48 shadow-lg uppercase tracking-widest">
+          <div class="bg-orange-400 text-white text-[10px] md:text-xs font-black py-1.5 rotate-45 absolute top-6 right-[-28px] md:top-8 md:right-[-32px] w-40 md:w-48 shadow-lg uppercase tracking-widest">
             Featured
           </div>
         </div>
